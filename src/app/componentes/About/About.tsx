@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { SparklesCore } from '../ui/sparkles'; // Restored original import
 
-const skills = ["Adobe Premiere Pro", "After Effects", "DaVinci Resolve", "Color Grading", "Cinematic Editing", "Motion Graphics"];
+const skills = ["DaVinci Resolve", "Color Grading", "Motion Graphics"];
 
 const About = () => {
   return (
@@ -73,7 +73,7 @@ const About = () => {
             {/* Stats */}
             <div className="flex gap-8 text-pink-300 font-semibold">
               <div>
-                <p className="text-3xl">10+</p>
+                <p className="text-3xl">50+</p>
                 <p className="text-sm text-white/80">Projects Delivered</p>
               </div>
               <div>
