@@ -1,14 +1,14 @@
 "use client"
+
 import RightSection from "./RightSection"
 import { motion } from "motion/react"
-import React, { useRef, useState } from "react"
-import Image from "next/image"
+import React, { useEffect, useRef, useState } from "react"
 
 const EditorShowcase = () => {
   const [isHovered, setIsHovered] = useState(false)
   const [coords, setCoords] = useState({ x: 0, y: 0 })
-
-  const containerRef = useRef<HTMLDivElement>(null) 
+  const containerRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null) // Ref for the new single video
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const rect = e.currentTarget.getBoundingClientRect()
@@ -17,15 +17,25 @@ const EditorShowcase = () => {
     setCoords({ x, y })
   }
 
+  const singleVideoSrc = encodeURI("/img/VN20250905_013823.mp4") // New video source
+
+  useEffect(() => {
+    videoRef.current?.play().catch(err => {
+      console.warn("Single video autoplay failed:", err)
+      videoRef.current!.controls = true
+    })
+  }, [])
+
   return (
     <div
-    ref={containerRef}
-    className="bg-black min-h-screen h-full w-full text-white flex flex-col items-center justify-center gap-12 px-6 py-5 md:px-12 relative">
+      ref={containerRef}
+      className="bg-black min-h-screen h-full w-full text-white flex flex-col items-center justify-center gap-12 px-6 py-5 md:px-12 relative"
+    >
       <section className="flex flex-col md:flex-row h-full w-full flex-1 items-center justify-between gap-8">
         {/* LEFT BOX */}
         <div className="h-full w-full md:w-[60%] flex flex-col justify-between gap-8">
-          {/* Page Title on the left */}
-          <div className="flex items-start justify-start h-30  mb-4">
+          {/* Page Title */}
+          <div className="flex items-start justify-start h-30 mb-4">
             <motion.h1
               className="text-3xl h-full md:text-7xl font-semibold tracking-tight flex 
               bg-gradient-to-r from-blue-400 via-purple-500 to-orange-500 
@@ -38,103 +48,46 @@ const EditorShowcase = () => {
               Video Editing Portfolio
             </motion.h1>
           </div>
-          {/* Top content (Before Editing) */}
-          <motion.div className="relative flex flex-col items-start group p-3">
+
+          {/* New Single Video Section */}
+          <motion.div className="relative flex flex-col items-center justify-center p-3">
             <div
-              className="relative z-10 w-full flex justify-start h-[30vh]"
+              className="relative z-10 w-full flex justify-center h-[50vh] md:h-[60vh]" // Adjusted height
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               onMouseMove={handleMouseMove}
             >
-              <div className="relative overflow-hidden rounded-2xl">
-                <Image
-                  src="/img/RINTARO TSUMUGI AND KAORUKO WAGURI(1).jpeg"
-                  alt="Before Editing"
-                  width={400}
-                  height={400}
-                  className="object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
-                />
+              <div className="relative overflow-hidden rounded-2xl group">
+                <video
+                  ref={videoRef}
+                  src={singleVideoSrc}
+                  className="rounded-2xl object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  preload="metadata"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
-
-            <div className="relative z-10 mt-6 text-left w-2/3">
+            <div className="relative z-10 mt-6 text-center w-full"> {/* Centered text */}
               <motion.h2
                 className="text-3xl font-semibold font-sans text-white"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.1 }}
               >
-                Before Editing
+                Color Grading and Smooth Transitions
               </motion.h2>
-              <motion.p
-                className="text-gray-300 text-lg mt-3 leading-relaxed font-light"
-                initial={{ y: 10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                Raw footage straight from the camera — unpolished, simple, and
-                waiting to be transformed into something cinematic.
-              </motion.p>
-            </div>
-          </motion.div>
-
-          {/* Bottom content (After Editing) */}
-          <motion.div className="flex flex-col items-end">
-            <div
-              className="w-full flex justify-end"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              onMouseMove={handleMouseMove}
-            >
-              <div className="relative overflow-hidden rounded-2xl group">
-                <img
-                  src="/img/RINTARO TSUMUGI AND KAORUKO WAGURI(2).jpeg"
-                  alt="After Editing"
-                  width={400}
-                  height={400}
-                  className="object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-            </div>
-            <div className="pl-5 p-3 text-left w-[55%]">
-              <h2 className="text-3xl font-semibold text-white">After Editing</h2>
-              <p className="text-gray-300 text-lg mt-3 leading-relaxed font-light">
-                Enhanced with color grading, smooth transitions, and creative
-                effects that turn the raw clips into a professional visual story.
-              </p>
             </div>
           </motion.div>
         </div>
 
         {/* RIGHT BOX */}
         <RightSection containerRef={containerRef as React.RefObject<HTMLDivElement>} />
-
       </section>
-
-      {/* Hover tooltip image */}
-      {/* {isHovered && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ ease: "easeOut", duration: 0.5 }}
-          className="absolute z-20 pointer-events-none"
-          style={{
-            top: coords.y + 150,
-            left: coords.x,
-          }}
-        >
-          <div className="backdrop-blur-md rounded-2xl">
-            <Image
-              src="/img/𝗆𝖺𝗍𝖼𝗁𝗂𝗇𝗀 ㅤㅤ𝗂𝖼𝗈𝗇𝗌  !! (2).jpeg"
-              alt="hover-preview"
-              width={160}
-              height={160}
-              className="rounded-xl"
-            />
-          </div>
-        </motion.div>
-      )} */}
     </div>
   )
 }

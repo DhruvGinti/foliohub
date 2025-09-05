@@ -94,9 +94,11 @@ const SixDivLayout = () => {
         {/* Bottom Info */}
         <div className="absolute bottom-4 left-5 flex items-center gap-6 text-neutral-400 text-xs">
   {[
-    { src: "/log/Blender-Logo-3D-Software-84623.png", label: "Blender" },
-    { src: "/log/images.jpeg", label: "Colorist" },
     { src: "/log/pngwing.com.png", label: "DaVinci" },
+    { src: "/log/Blender-Logo-3D-Software-84623.png", label: "Blender" },
+    { src: "/log/NKe0I1.png", label: "Flowframes" },
+    { src: "/log/images.jpeg", label: "Topaz" },
+    
   ].map((item, i) => (
     <div key={i} className="relative group">
       <motion.div

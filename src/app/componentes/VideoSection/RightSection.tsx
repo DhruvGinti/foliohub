@@ -2,7 +2,6 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { Pause, Play, Volume2, VolumeX, Maximize, Info, X, FileVideo, Clock, HardDrive, Monitor } from "lucide-react"
-import { useDragControls } from "motion/react"
 
 import React from "react"
 
@@ -24,7 +23,7 @@ const VideoSlider: React.FC<VideoSliderProps> = ({ containerRef }) => {
 
   const videos = [
     {
-      src: "/brothers.mp4",
+      src: "/Editor Challenge Footage (NEEDS TO BE EDITED).mp4",
       name: "Original Video",
       type: "MP4 Video",
       size: "156.2 MB",
@@ -36,7 +35,7 @@ const VideoSlider: React.FC<VideoSliderProps> = ({ containerRef }) => {
       description: "Original unedited footage"
     },
     {
-      src: "/cc1 (1).mp4", 
+      src: "/@mitrox_mx.mp4", 
       name: "Edited Video",
       type: "MP4 Video",
       size: "89.7 MB",
@@ -48,8 +47,6 @@ const VideoSlider: React.FC<VideoSliderProps> = ({ containerRef }) => {
       description: "Professionally edited version"
     }
   ]
-
-  const controls = useDragControls()
 
   // Handle video selection with smooth transition
   const handleVideoSelection = (index: number) => {
@@ -147,8 +144,8 @@ const VideoSlider: React.FC<VideoSliderProps> = ({ containerRef }) => {
       <div className="flex items-center justify-center" style={{ height: "10vh" }}>
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-3xl flex text-start font-bold text-transparent mb-2 bg-gradient-to-r from-blue-400 via-purple-500 to-orange-500 
-                     bg-clip-text 
-                     drop-shadow-[0_0_35px_rgba(168,85,247,0.8)]">
+                       bg-clip-text 
+                       drop-shadow-[0_0_35px_rgba(168,85,247,0.8)]">
             Premium Video Player
           </h1>
           <p className="text-lg text-white text-center">
@@ -158,12 +155,7 @@ const VideoSlider: React.FC<VideoSliderProps> = ({ containerRef }) => {
       </div>
 
       <motion.div
-        drag
-        dragControls={controls}
-        dragConstraints={containerRef}
-        dragElastic={0.1}
-        dragMomentum={false}
-        className="h-full w-full border-white/30 border-2 z-[999px] relative flex flex-col items-center bg-black rounded-2xl overflow-hidden group cursor-pointer shadow-2xl"
+        className="h-full w-full border-white/30 border-2 z-[9999] relative flex flex-col items-center bg-black rounded-2xl overflow-hidden group shadow-2xl"
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.3 }}
       >
@@ -209,7 +201,7 @@ const VideoSlider: React.FC<VideoSliderProps> = ({ containerRef }) => {
               ref={videoRef}
               src={videos[videoIndex].src}
               onLoadedMetadata={(e) => handleMetadata(e, videoIndex)}
-              className="w-full h-full object-cover rounded-xl"
+              className="w-full h-full object-contain rounded-xl"
               playsInline
               preload="auto"
               muted={ismuted}
@@ -235,22 +227,6 @@ const VideoSlider: React.FC<VideoSliderProps> = ({ containerRef }) => {
                 />
               </div>
             )}
-
-            {/* Smooth transition overlay */}
-            {/* <AnimatePresence>
-              {isTransitioning && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="absolute inset-0 bg-black/20 backdrop-blur-lg rounded-xl flex items-center justify-center"
-                >
-                  <div className="bg-white/20 backdrop-blur-md rounded-full p-4">
-                    <div className="w-6 h-6 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence> */}
             
             {/* Info Overlay */}
             <AnimatePresence>
@@ -346,7 +322,7 @@ const VideoSlider: React.FC<VideoSliderProps> = ({ containerRef }) => {
         {/* Controls bar */}
         <div className="w-[90%] max-w-4xl flex flex-col px-5 py-3 bg-white/10 backdrop-blur-md rounded-2xl">
           <div className="w-full h-12 flex items-center justify-between">
-            <div className="flex items-center gap-3">   
+            <div className="flex items-center gap-3">  
               <motion.button
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.92 }}

@@ -1,13 +1,17 @@
-import React from 'react'
-import { SparklesCore } from '../ui/sparkles'
+"use client";
 
-const skills = ["Adobe Premiere Pro", "After Effects", "DaVinci Resolve", "Color Grading", "Cinematic Editing", "Motion Graphics"]
+import React from 'react';
+import { motion } from 'framer-motion';
+import { SparklesCore } from '../ui/sparkles'; // Restored original import
+
+const skills = ["Adobe Premiere Pro", "After Effects", "DaVinci Resolve", "Color Grading", "Cinematic Editing", "Motion Graphics"];
 
 const About = () => {
   return (
-    <div className="h-[40rem] relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+    // Main container: Changed fixed height to min-height for responsiveness. Added padding.
+    <div className="relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md min-h-screen py-20 px-4">
       
-      {/* Sparkles Background - positioned absolutely within the container bug of h-[40rem] */}
+      {/* Sparkles Background - Unchanged as requested */}
       <div className="absolute inset-0 w-full h-full">
         <SparklesCore
           id="tsparticlesfullpage"
@@ -22,39 +26,40 @@ const About = () => {
 
       {/* Content Container - positioned relative to overlay on sparkles */}
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
-        {/* Heading */}
-        <h2 className="text-4xl font-bold text-white mb-10 tracking-wide">
-         Bit About Me
+        {/* Heading with responsive font size */}
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+          A Bit About Me
         </h2>
 
-        <section className="flex gap-6 max-w-6xl w-full px-4">
+        {/* Section now stacks vertically on mobile (flex-col) and horizontally on desktop (md:flex-row) */}
+        <section className="flex flex-col md:flex-row items-center gap-10 max-w-6xl w-full">
           
-          {/* Left - Image / Reel */}
-          <div className="rounded-2xl h-[50vh] w-1/2 flex items-center justify-center">
-            <div className="h-[45vh] w-[45vh] rounded-full overflow-hidden shadow-lg">
+          {/* Left - Image / Reel - Takes full width on mobile, half on desktop */}
+          <div className="w-full md:w-1/2 flex items-center justify-center">
+             {/* Image container with responsive sizing */}
+            <div className="h-64 w-64 md:h-[45vh] md:w-[45vh] rounded-full overflow-hidden shadow-lg flex-shrink-0">
               <img 
-                src="/kaoruko pfp __.jpeg" 
+                src="/profile_pic.jpg"
                 alt="about-img" 
                 className="rounded-full h-full w-full object-cover" 
               />
             </div>
           </div>
 
-          {/* Right - Text Content */}
-          <div className="rounded-2xl h-[50vh] w-1/2 flex flex-col justify-center">
-            <h3 className="text-2xl font-bold text-left mb-4 text-pink-400">
+          {/* Right - Text Content - Takes full width on mobile, half on desktop. Text centered on mobile. */} 
+          <div className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left">
+            <h3 className="text-2xl font-bold mb-4 text-pink-400">
               Who Am I?
             </h3>
-            <p className="text-white text-lg text-left leading-relaxed mb-6">
+            <p className="text-white text-lg leading-relaxed mb-6">
               I&apos;m a passionate <span className="text-pink-400 font-semibold">Video Editor & Storyteller</span> 
               who turns raw footage into captivating stories. 
               With expertise in <span className="text-pink-400 font-semibold">cinematic editing, color grading, and motion graphics</span>, 
               I craft videos that not only look stunning but also connect deeply with audiences. 
-              
             </p>
 
-            {/* Animated Skills */}
-            <div className="flex flex-wrap gap-2 mb-6">
+            {/* Skills now justify-center on mobile */}
+            <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
               {skills.map((skill, i) => (
                 <span 
                   key={i} 
@@ -75,10 +80,6 @@ const About = () => {
                 <p className="text-3xl">2+</p>
                 <p className="text-sm text-white/80">Years Experience</p>
               </div>
-              {/* <div>
-                <p className="text-3xl">100%</p>
-                <p className="text-sm text-white/80">Client Satisfaction</p>
-              </div> */}
             </div>
           </div>
         </section>
@@ -87,4 +88,5 @@ const About = () => {
   )
 }
 
-export default About
+export default About;
+
