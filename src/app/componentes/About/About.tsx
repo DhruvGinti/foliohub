@@ -72,7 +72,7 @@ const About = () => {
           >
             <div className="h-64 w-64 sm:h-80 sm:w-80 lg:h-[45vh] lg:w-[45vh] rounded-full overflow-hidden shadow-2xl border-4 border-violet-400/20">
               <Image
-                src="/kaoruko pfp __ (1).jpeg"
+                src="/DP.jpg"
                 alt="about-img"
                 className="rounded-full h-full w-full object-cover hover:scale-102 transition-transform duration-300"
                 width={400}

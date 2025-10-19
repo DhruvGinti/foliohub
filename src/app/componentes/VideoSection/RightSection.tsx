@@ -18,8 +18,8 @@ const videos = [
     codec: "H.264",
     duration: "4:32",
     created: "Dec 15, 2023",
-    thumbnail: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=300&fit=crop&crop=center",
-    description: "Original unedited footage"
+    thumbnail: "/2.png", 
+    description: "Original unedited footage",
   },
   {
     src: "/videos/Realone.mp4", 

@@ -43,7 +43,7 @@ const EditorShowcase = () => {
             <div className="relative z-10 w-full flex justify-start h-[30vh]">
               <div className="relative overflow-hidden rounded-2xl">
                 <Image
-                  src="/RINTARO TSUMUGI AND KAORUKO WAGURI(1).jpeg"
+                  src="/1raw.png"
                   alt="Before Editing"
                   width={400}
                   height={400}
@@ -85,7 +85,7 @@ const EditorShowcase = () => {
             <div className="w-full flex justify-end">
               <div className="relative overflow-hidden rounded-2xl group">
                 <Image
-                  src="/RINTARO TSUMUGI AND KAORUKO WAGURI(1).jpeg"
+                  src="/1.png"
                   alt="After Editing"
                   width={400}
                   height={400}
