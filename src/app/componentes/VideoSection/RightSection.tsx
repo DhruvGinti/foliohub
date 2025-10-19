@@ -1,8 +1,9 @@
 "use client"
-import { motion, AnimatePresence, useInView, useScroll, useSpring, useTransform } from "motion/react"
+import { motion, AnimatePresence, useInView, useScroll, useSpring, useTransform } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { Pause, Play, Volume2, VolumeX, Maximize, Info, X, FileVideo, Clock, HardDrive, Monitor } from "lucide-react"
 import React from "react"
+import Image from "next/image"
 
 interface VideoSliderProps {
   containerRef?: React.RefObject<HTMLDivElement>
@@ -18,11 +19,11 @@ const videos = [
     codec: "H.264",
     duration: "4:32",
     created: "Dec 15, 2023",
-    thumbnail: "/2.png", 
+    thumbnail: "/2raw.png",
     description: "Original unedited footage",
   },
   {
-    src: "/videos/Realone.mp4", 
+    src: "/videos/Realone.mp4",
     name: "Edited Video",
     type: "MP4 Video",
     size: "89.7 MB",
@@ -30,9 +31,9 @@ const videos = [
     codec: "H.264",
     duration: "3:18",
     created: "Nov 28, 2023",
-    thumbnail: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=300&fit=crop&crop=center",
-    description: "Professionally edited version"
-  }
+    thumbnail: "/2.png",
+    description: "Professionally edited version",
+  },
 ]
 
 const VideoSlider: React.FC<VideoSliderProps> = () => {
@@ -132,11 +133,11 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
       if (videoRef.current.requestFullscreen) {
         videoRef.current.requestFullscreen()
       } else if ((videoRef.current as HTMLVideoElement & { webkitRequestFullscreen?: () => void }).webkitRequestFullscreen) {
-        (videoRef.current as HTMLVideoElement & { webkitRequestFullscreen: () => void }).webkitRequestFullscreen()
+        ;(videoRef.current as HTMLVideoElement & { webkitRequestFullscreen: () => void }).webkitRequestFullscreen()
       } else if ((videoRef.current as HTMLVideoElement & { mozRequestFullScreen?: () => void }).mozRequestFullScreen) {
-        (videoRef.current as HTMLVideoElement & { mozRequestFullScreen: () => void }).mozRequestFullScreen()
+        ;(videoRef.current as HTMLVideoElement & { mozRequestFullScreen: () => void }).mozRequestFullScreen()
       } else if ((videoRef.current as HTMLVideoElement & { msRequestFullscreen?: () => void }).msRequestFullscreen) {
-        (videoRef.current as HTMLVideoElement & { msRequestFullscreen: () => void }).msRequestFullscreen()
+        ;(videoRef.current as HTMLVideoElement & { msRequestFullscreen: () => void }).msRequestFullscreen()
       }
     }
   }
@@ -149,15 +150,10 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`
   }
 
-  const progressPercent = durations[videoIndex]
-    ? (currentTime / durations[videoIndex]) * 100
-    : 0
+  const progressPercent = durations[videoIndex] ? (currentTime / durations[videoIndex]) * 100 : 0
 
   return (
-    <div
-      ref={sectionRef}
-      className="w-full relative items-center justify-center overflow-hidden px-0"
-    >
+    <div ref={sectionRef} className="w-full relative items-center justify-center overflow-hidden px-0">
       {/* Right section heading */}
       <motion.div
         style={{ opacity, y }}
@@ -183,21 +179,21 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
         {/* Enhanced Mac-style window buttons - Responsive */}
         <div className="absolute top-2 md:top-4 left-2 md:left-4 right-2 md:right-4 flex items-center justify-between z-30">
           <div className="flex gap-1.5 md:gap-2">
-            <motion.button 
+            <motion.button
               className="h-2.5 w-2.5 md:h-3.5 md:w-3.5 bg-red-500 rounded-full border border-red-700 shadow-inner hover:bg-red-400 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               tabIndex={-1}
               aria-label="Close"
             />
-            <motion.button 
+            <motion.button
               className="h-2.5 w-2.5 md:h-3.5 md:w-3.5 bg-yellow-400 rounded-full border border-yellow-500 shadow-inner hover:bg-yellow-300 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               tabIndex={-1}
               aria-label="Minimize"
             />
-            <motion.button 
+            <motion.button
               className="h-2.5 w-2.5 md:h-3.5 md:w-3.5 bg-green-500 rounded-full border border-green-700 shadow-inner hover:bg-green-400 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -241,7 +237,7 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
               onPause={() => setIsPlaying(false)}
               animate={{
                 scale: isTransitioning ? 1.02 : 1,
-                opacity: isTransitioning ? 0.7 : 1
+                opacity: isTransitioning ? 0.7 : 1,
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
               controls={false}
@@ -249,12 +245,12 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
 
             {/* Progress bar overlay */}
             <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 z-25">
-              <div 
+              <div
                 className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
-            
+
             {/* Info Overlay - Responsive */}
             <AnimatePresence>
               {showInfo && (
@@ -335,8 +331,12 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
                       <div className="bg-blue-500/10 rounded-lg p-2 md:p-3 border border-blue-500/20">
                         <p className="text-xs md:text-sm font-medium text-blue-300 mb-1">Current Status</p>
                         <div className="text-xs text-blue-200 space-y-1">
-                          <p>Progress: {Math.round(progressPercent)}% ({formatTime(currentTime)})</p>
-                          <p>State: {isPlaying ? "Playing" : "Paused"} • Audio: {isMuted ? "Muted" : "On"}</p>
+                          <p>
+                            Progress: {Math.round(progressPercent)}% ({formatTime(currentTime)})
+                          </p>
+                          <p>
+                            State: {isPlaying ? "Playing" : "Paused"} • Audio: {isMuted ? "Muted" : "On"}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -356,7 +356,7 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <div className="w-full h-10 md:h-12 flex items-center justify-between">
-            <div className="flex items-center gap-2 md:gap-3">   
+            <div className="flex items-center gap-2 md:gap-3">
               <motion.button
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.92 }}
@@ -380,7 +380,7 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
 
             <div className="flex-1 flex items-center justify-center px-2">
               <div className="hover:bg-white/20 backdrop-blur-sm px-2 md:px-4 py-1 md:py-2 rounded-full text-white transition-all duration-200 text-xs md:text-sm font-medium border border-white/10">
-                {formatTime(currentTime)} / {durations[videoIndex] ? formatTime(durations[videoIndex]) : videos[videoIndex].duration}
+                {formatTime(currentTime)} / {durations[videoIndex] > 0 ? formatTime(durations[videoIndex]) : videos[videoIndex].duration}
               </div>
             </div>
 
@@ -407,16 +407,16 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
           <div className="text-center mb-3 md:mb-4">
             <span className="text-white/90 text-xs md:text-sm font-semibold tracking-wide">SELECT VIDEO VERSION</span>
           </div>
-          
-          <div className="grid grid-cols-2 gap-3 md:gap-6"> 
+
+          <div className="grid grid-cols-2 gap-3 md:gap-6">
             {videos.map((video, index) => (
               <motion.div
                 key={index}
                 onClick={() => handleVideoSelection(index)}
                 className={`relative cursor-pointer group overflow-hidden ${
-                  videoIndex === index 
-                    ? 'ring-2 md:ring-3 ring-red-500 rounded-xl shadow-md shadow-blue-500/50' 
-                    : 'hover:ring-2 hover:ring-white/30 rounded-xl'
+                  videoIndex === index
+                    ? "ring-2 md:ring-3 ring-red-500 rounded-xl shadow-md"
+                    : "hover:ring-2 hover:ring-white/30 rounded-xl"
                 } transition-all duration-300`}
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.98 }}
@@ -427,53 +427,57 @@ const VideoSlider: React.FC<VideoSliderProps> = () => {
                 tabIndex={0}
                 role="button"
               >
-                {/* Thumbnail Image - Responsive height */}
-                <div className="relative h-20 md:h-32 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden rounded-xl">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center rounded-xl">
-                    <span className="text-white text-sm">{video.name}</span>
+                {/* Thumbnail Image */}
+                <div className="relative bg-transparent overflow-hidden rounded-xl">
+                  <Image
+                    src={video.thumbnail}
+                    alt={`${video.name} thumbnail`}
+                    width={400}
+                    height={300}
+                    className="object-cover rounded-xl w-full transition-transform duration-500 group-hover:scale-110"
+                  />
+
+                  {/* Dark overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-xl" />
+
+                  {/* Video Info - absolutely positioned */}
+                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-2 text-white z-10">
+                    <h4 className="font-semibold text-sm md:text-base mb-1 truncate">{video.name}</h4>
+                    <p className="text-xs md:text-sm text-gray-300 line-clamp-2">{video.description}</p>
                   </div>
-                  
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-xl" />
-                  
+
                   {/* Active indicator */}
                   {videoIndex === index && (
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg"
+                      className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg z-20"
                     >
                       <div className="w-2 h-2 md:w-3 md:h-3 bg-white rounded-full" />
                     </motion.div>
                   )}
+
+                  {/* Loading overlay */}
+                  <AnimatePresence>
+                    {isTransitioning && videoIndex === index && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center rounded-xl z-30"
+                      >
+                        <div className="w-3 h-3 md:w-4 md:h-4 border border-white/40 border-t-white rounded-full animate-spin" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-                
-                {/* Video Info - Responsive text */}
-                <div className="p-2 md:p-3 bg-white/5 backdrop-blur-sm border-t border-white/10 rounded-b-xl">
-                  <h4 className="font-semibold text-white text-xs md:text-sm mb-1">{video.name}</h4>
-                  <p className="text-xs text-gray-300 mb-1 md:mb-2 line-clamp-2">{video.description}</p>
-                </div>
-                
-                {/* Loading state for transitions */}
-                <AnimatePresence>
-                  {isTransitioning && videoIndex === index && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center rounded-xl"
-                    >
-                      <div className="w-3 h-3 md:w-4 md:h-4 border border-white/40 border-t-white rounded-full animate-spin" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </motion.div>
             ))}
           </div>
-          
+
           {/* Selected video indicator */}
           <div className="text-center mt-3 md:mt-4">
-            <motion.p 
+            <motion.p
               key={videoIndex}
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}

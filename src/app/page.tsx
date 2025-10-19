@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import HomePage from "@/app/componentes/Homepage/HomePage";
 import SixDivLayout from "./componentes/SixDivLayout";
 import ContactForm from "./componentes/ContactForm";
-import Slider from "./componentes/Slider";
 import About from "./componentes/About/About";
 import VideoSection from "./componentes/VideoSection/VideoSection";
 import Preloader from "./componentes/Preloader";
@@ -50,7 +49,6 @@ export default function Home() {
               <SixDivLayout />
               <About />
               <VideoSection />
-              <Slider />
               <ContactForm />
             </motion.div>
           )}
