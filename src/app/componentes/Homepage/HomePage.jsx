@@ -25,7 +25,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        Your Vision, Seamlessly Edited
+        Let’s Make Your Video Stand Out
       </motion.h1>
 
       <motion.p
@@ -39,7 +39,7 @@ const HeroSection = () => {
           <span className="bg-white text-transparent bg-clip-text rounded-md font-semibold animate-pulse">
             clients
           </span>{" "}
-          and creators tell powerful stories through seamless video editing.
+          through seamless video editing.
         </span>
       </motion.p>
 

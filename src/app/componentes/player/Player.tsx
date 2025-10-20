@@ -183,7 +183,6 @@ const Player: React.FC<PlayerProps> = ({ close, video }) => {
       : 0;
 
   const editingSoftware = [
-    { name: "After Effects", icon: Zap },
     { name: "DaVinci Resolve", icon: Palette },
   ];
 

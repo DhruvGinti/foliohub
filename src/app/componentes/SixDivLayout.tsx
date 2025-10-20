@@ -52,8 +52,8 @@ const texts: string[] = [
 ];
 
 const toolIcons: ToolIcon[] = [
-  { src: "/log/Blender-Logo-3D-Software-84623.png", label: "Blender" },
-  { src: "/log/images.jpeg", label: "Colorist" },
+//  { src: "/log/Blender-Logo-3D-Software-84623.png", label: "Blender" },
+  { src: "/log/images.jpeg", label: "TopazAI" },
   { src: "/log/pngwing.com.png", label: "DaVinci" },
 ];
 
@@ -462,11 +462,11 @@ const SixDivLayout = () => {
           />
           <motion.div className="relative z-10 text-xl md:text-3xl text-white text-center">
             <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
-              Portfolio Showcase
+              Edit's Showcase
             </motion.div>
 
             <motion.p className="text-xs md:text-base font-normal mt-2 text-neutral-300 opacity-80">
-              More videos on the way see all my prev
+              Want to see more edits? Take a look!
             </motion.p>
 
           </motion.div>
