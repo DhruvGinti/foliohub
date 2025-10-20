@@ -98,7 +98,7 @@ const About = () => {
             >
               <Video className="w-6 h-6 text-violet-400" />
               <h3 className="text-2xl sm:text-3xl font-bold text-violet-400">
-                Who Am I? <span className="text-neutral-300 font-semibold ">— I&apos;m Dhruv</span>
+                Who Am I? <span className="text-neutral-300 font-semibold ">— I&apos;m Dhruv Ginti</span>
               </h3>
             </motion.div>
             
