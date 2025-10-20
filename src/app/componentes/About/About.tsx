@@ -8,12 +8,13 @@ import { motion, useInView } from 'motion/react' // 👈 IMPORT FRAMER MOTION
 
 // Assign different colors for each skill
 const skills = [
-  { name: "Adobe Premiere Pro", icon: Video, color: "bg-yellow-500/20 text-yellow-300 border-yellow-400/40 hover:bg-yellow-500/30" },
-  { name: "After Effects", icon: Edit, color: "bg-indigo-500/20 text-indigo-300 border-indigo-400/40 hover:bg-indigo-500/30" },
-  { name: "DaVinci Resolve", icon: Play, color: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40 hover:bg-cyan-500/30" },
-  { name: "Color Grading", icon: Palette, color: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40 hover:bg-emerald-500/30" },
-  { name: "Cinematic Editing", icon: Video, color: "bg-pink-500/20 text-pink-300 border-pink-400/40 hover:bg-pink-500/30" },
-  { name: "Motion Graphics", icon: Edit, color: "bg-orange-500/20 text-orange-300 border-orange-400/40 hover:bg-orange-500/30" }
+
+{ name: "DaVinci Resolve", icon: Play, color: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40 hover:bg-cyan-500/30" },
+{ name: "Color Grading", icon: Palette, color: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40 hover:bg-emerald-500/30" },
+{ name: "Cinematic Editing", icon: Video, color: "bg-pink-500/20 text-pink-300 border-pink-400/40 hover:bg-pink-500/30" },
+{ name: "Motion Graphics", icon: Edit, color: "bg-orange-500/20 text-orange-300 border-orange-400/40 hover:bg-orange-500/30" },
+{ name: "Flow Frames", icon: Video, color: "bg-yellow-500/20 text-yellow-300 border-yellow-400/40 hover:bg-yellow-500/30" },
+{ name: "Topaz Video AI", icon: Edit, color: "bg-indigo-500/20 text-indigo-300 border-indigo-400/40 hover:bg-indigo-500/30" }
 ]
 
 // Removed all variants
@@ -149,7 +150,7 @@ const About = () => {
               <div className="text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
                   <Award className="w-5 h-5 text-violet-400" />
-                  <p className="text-2xl sm:text-3xl font-bold text-violet-300">10+</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-violet-300">50+</p>
                 </div>
                 <p className="text-sm text-white/80">Projects Delivered</p>
               </div>
