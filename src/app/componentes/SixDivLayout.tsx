@@ -37,7 +37,7 @@ const videos: Video[] = [
     views: 0,
   },
   {
-    src: "/finalBMW.mp4",
+    src: "videos/finalBMW.mp4",
     title: "BMW Showcase",
     description: "Luxury meets motion. Smooth transitions and cinematic vibes",
     views: 0,

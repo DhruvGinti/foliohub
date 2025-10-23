@@ -26,12 +26,12 @@ const videoCatalogue: VideoData[] = [
     description: "A fast-paced cinematic showcase of 2024 highlights.",
   },
   {
-    title: "Vlog Editing Showcase",
-    duration: "4:00",
-    date: "Feb 28, 2024",
-    thumbnail: "/path/to/vlog_thumb.jpg",
-    src: "/finalBMW.mp4",
-    description: "A fun, energetic vlog edit with creative transitions.",
+    title: "Color Grading",
+    duration: "0:30",
+    date: "Apr 05, 2024",
+    thumbnail: "/path/to/ad_thumb.jpg",
+    src: "/videos/finalBMW.mp4",
+    description: "A cinematic storytelling piece with rich color grading.",
   },
   {
     title: "Motion Graphics Demo",
@@ -42,11 +42,11 @@ const videoCatalogue: VideoData[] = [
     description: "A quick demo of motion graphics and animation.",
   },
   {
-    title: "Masterpiece Project",
+    title: "Color Grading",
     duration: "0:30",
     date: "Apr 05, 2024",
     thumbnail: "/path/to/ad_thumb.jpg",
-    src: "/videos/Dhruv_Masterpiease.mp4",
+    src: "/videos/CCG.mp4",
     description: "A cinematic storytelling piece with rich color grading.",
   },
   {
@@ -54,7 +54,7 @@ const videoCatalogue: VideoData[] = [
     duration: "0:30",
     date: "Apr 05, 2024",
     thumbnail: "/path/to/ad_thumb.jpg",
-    src: "/videos/CCG.mp4",
+    src: "/videos/RIBU.mp4",
     description: "A cinematic storytelling piece with rich color grading.",
   },
   {
@@ -71,6 +71,14 @@ const videoCatalogue: VideoData[] = [
     date: "Apr 05, 2024",
     thumbnail: "/path/to/ad_thumb.jpg",
     src: "/videos/boka_intro_fin.mp4",
+    description: "A cinematic storytelling piece with rich color grading.",
+  },
+  {
+    title: "Masterpiece Project",
+    duration: "0:30",
+    date: "Apr 05, 2024",
+    thumbnail: "/path/to/ad_thumb.jpg",
+    src: "/videos/Dhruv_Masterpiease.mp4",
     description: "A cinematic storytelling piece with rich color grading.",
   },
   {
