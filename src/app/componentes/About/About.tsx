@@ -11,10 +11,9 @@ const skills = [
 
 { name: "DaVinci Resolve", icon: Play, color: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40 hover:bg-cyan-500/30" },
 { name: "Color Grading", icon: Palette, color: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40 hover:bg-emerald-500/30" },
-{ name: "Cinematic Editing", icon: Video, color: "bg-pink-500/20 text-pink-300 border-pink-400/40 hover:bg-pink-500/30" },
 { name: "Motion Graphics", icon: Edit, color: "bg-orange-500/20 text-orange-300 border-orange-400/40 hover:bg-orange-500/30" },
 { name: "Flow Frames", icon: Video, color: "bg-yellow-500/20 text-yellow-300 border-yellow-400/40 hover:bg-yellow-500/30" },
-{ name: "Topaz Video AI", icon: Edit, color: "bg-indigo-500/20 text-indigo-300 border-indigo-400/40 hover:bg-indigo-500/30" }
+{ name: "Topaz Video AI", icon: Video, color: "bg-indigo-500/20 text-indigo-300 border-indigo-400/40 hover:bg-indigo-500/30" }
 ]
 
 // Removed all variants
@@ -107,10 +106,10 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.5 } } : { opacity: 0, y: 20 }}
             >
-              I&apos;m a passionate <span className="text-violet-400 font-semibold">Video Editor & Storyteller</span>
-              {' '}who turns raw footage into captivating stories.
-              With expertise in <span className="text-violet-400 font-semibold">cinematic editing, color grading, and motion graphics</span>,
-              I craft videos that not only look stunning but also connect deeply with audiences.
+              A creative video editor who brings <span className="text-violet-400 font-semibold">ideas to life.</span>
+              {' '}I specialize in crafting polished,
+               emotionally-driven videos-<span className="text-violet-400 font-semibold">from promos to storytelling</span>,
+              by focusing on a clean <span className="text-violet-400 font-semibold">aesthetic, seamless flow, and impactful style.</span>
             </motion.p>
 
             {/* Animated Skills */}

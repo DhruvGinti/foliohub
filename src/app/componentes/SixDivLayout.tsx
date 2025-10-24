@@ -26,20 +26,20 @@ type ToolIcon = {
 const videos: Video[] = [
   {
     src: "videos/OrigionalVideo.mp4",
-    title: "Overlay Edit Skills",
-    description: "Demonstrating creative overlay techniques, advanced transitions, and visual storytelling to enhance video edits.",
+    title: "Multi-Layer Compositing",
+    description: "Skillfully layering video, adjustment clips, and graphic elements for a dynamic look.",
     views: 0,
   },
   {
     src: "videos/brothers (1).mp4",
-    title: "Brotherhood Ride",
-    description: "Two brothers, one passion – cinematic storytelling on wheels",
+    title: "Match-Moving",
+    description: "A showcase of advanced techniques including seamless speedramps and match-moving-text.",
     views: 0,
   },
   {
-    src: "videos/finalBMW.mp4",
-    title: "BMW Showcase",
-    description: "Luxury meets motion. Smooth transitions and cinematic vibes",
+    src: "videos/RIBU.mp4",
+    title: "Motion Graphics",
+    description: "Crafting clean animations with text, logos, and graphics to make videos stand out.",
     views: 0,
   },
 ];

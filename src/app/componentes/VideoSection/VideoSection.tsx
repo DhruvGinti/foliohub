@@ -98,7 +98,7 @@ const EditorShowcase = () => {
               <h2 className="text-3xl font-semibold text-white">After Editing</h2>
               <p className="text-gray-300 text-lg mt-3 leading-relaxed font-light">
                 Enhanced with color grading, smooth transitions, and creative
-                effects that turn the raw clips into a professional visual story.
+                effects that turn the raw clips into a professional video.
               </p>
             </div>
           </motion.div>
