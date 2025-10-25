@@ -17,6 +17,15 @@ type VideoData = {
 
 // Dummy data for the video grid
 const videoCatalogue: VideoData[] = [
+  
+  {
+    title: "CINEMATIC Reels",
+    duration: "0:30",
+    date: "Apr 05, 2024",
+    thumbnail: "/path/to/ad_thumb.jpg",
+    src: "/videos/Realone.mp4",
+    description: "A cinematic storytelling piece with rich color grading.",
+  },
   {
     title: "BMW M4",
     duration: "1:35",
@@ -58,12 +67,12 @@ const videoCatalogue: VideoData[] = [
     description: "Crafting clean animations with text, logos, and graphics to make videos stand out.",
   },
   {
-    title: "CINEMATIC Reels",
+    title: "BMW M4 (Hindi)",
     duration: "0:30",
     date: "Apr 05, 2024",
     thumbnail: "/path/to/ad_thumb.jpg",
-    src: "/videos/Realone.mp4",
-    description: "A cinematic storytelling piece with rich color grading.",
+    src: "/videos/Dhruv_Masterpiease.mp4",
+    description: "Locking 3D text into the scene so it moves perfectly with the camera.",
   },
   {
     title: "CINEMATIC Reels (Hindi)",
@@ -72,14 +81,6 @@ const videoCatalogue: VideoData[] = [
     thumbnail: "/path/to/ad_thumb.jpg",
     src: "/videos/boka_intro_fin.mp4",
     description: "A cinematic storytelling piece with rich color grading.",
-  },
-  {
-    title: "BMW M4 (Hindi)",
-    duration: "0:30",
-    date: "Apr 05, 2024",
-    thumbnail: "/path/to/ad_thumb.jpg",
-    src: "/videos/Dhruv_Masterpiease.mp4",
-    description: "Locking 3D text into the scene so it moves perfectly with the camera.",
   },
   {
     title: "Audio-Driven Text Animation (Hindi)",
