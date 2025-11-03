@@ -2,7 +2,7 @@ import React from 'react'
 import { Instagram, Twitter, Github } from 'lucide-react'
 
 const socials = [
-  { name: 'Instagram', href: 'https://www.instagram.com/mitrox_mx?igsh=MWVnMDg2eXB0bnk2aA==', icon: <Instagram /> },
+  { name: 'Instagram', href: 'https://www.instagram.com/dhruv_ginti?igsh=MXYwaTFnaTFyejVqdA==', icon: <Instagram /> },
   // { name: 'Twitter', href: 'https://twitter.com', icon: <Twitter /> },
   { name: 'Github', href: 'https://github.com/DhruvGinti', icon: <Github /> },
 ]

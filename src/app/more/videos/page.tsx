@@ -91,12 +91,12 @@ const videoCatalogue: VideoData[] = [
     description: "A cinematic storytelling piece with rich color grading.",
   },
   {
-    title: "Audio-Driven Text Animation (Hindi)",
+    title: "Motion Graphics",
     duration: "0:30",
     date: "Apr 05, 2024",
     thumbnail: "/path/to/ad_thumb.jpg",
     src: "/videos/arz_kiya_hai.mp4",
-    description: "A cinematic storytelling piece with rich color grading.",
+    description: "Crafting clean animations with text, logos, and graphics to make videos stand out.",
   },
   {
     title: "Audio-Driven Text Animation (Hindi)",
