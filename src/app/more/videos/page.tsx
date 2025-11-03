@@ -91,7 +91,7 @@ const videoCatalogue: VideoData[] = [
     description: "A cinematic storytelling piece with rich color grading.",
   },
   {
-    title: "Motion Graphics",
+    title: "Motion Graphics (Hindi)",
     duration: "0:30",
     date: "Apr 05, 2024",
     thumbnail: "/path/to/ad_thumb.jpg",
