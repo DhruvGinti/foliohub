@@ -42,14 +42,14 @@ const videoCatalogue: VideoData[] = [
     src: "/videos/RIBU.mp4",
     description: "Crafting clean animations with text, logos, and graphics to make videos stand out.",
   },
-  {
-    title: "FERRARI 812 GTS",
-    duration: "0:30",
-    date: "Apr 05, 2024",
-    thumbnail: "/path/to/ad_thumb.jpg",
-    src: "/videos/FERRARI_812_GTS.mp4",
-    description: "Crafting clean video transition",
-  },
+  // {
+  //   title: "FERRARI 812 GTS",
+  //   duration: "0:30",
+  //   date: "Apr 05, 2024",
+  //   thumbnail: "/path/to/ad_thumb.jpg",
+  //   src: "/videos/FERRARI_812_GTS.mp4",
+  //   description: "Crafting clean video transition",
+  // },
   {
     title: "BMW M4",
     duration: "1:35",
